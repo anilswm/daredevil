@@ -17,5 +17,12 @@ namespace IOSdk
             var result=new HttpUtility().call<UserRegistrationRespose>(requestUrl, payload,Method.POST);
             return result;
         }
+
+        public LoginResponse Login(UserLoginModel payload)
+        {
+            var requestUrl = $"https://api.loginradius.io/v1/login?apiKey={Config.ApiKey}";
+            var result = new HttpUtility().call<LoginResponse>(requestUrl, payload, Method.POST);
+            return result;
+        }
     }
 }
