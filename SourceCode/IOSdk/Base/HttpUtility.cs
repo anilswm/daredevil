@@ -1,28 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using Newtonsoft.Json;
 using RestSharp;
 
 namespace IOSdk.Base
 {
-    public static class Utility
-    {
-        public static bool IsNotNullOrEmpty<T>(this IEnumerable<T> value)
-        {
-            return value != null && value.Any();
-        }
-
-        public static bool IsNotNullOrEmptyOrWhiteSpace(this string Value)
-        {
-            return !Value.IsNullOrEmptyOrWhiteSpace();
-        }
-        public static bool IsNullOrEmptyOrWhiteSpace(this string Value)
-        {
-            return string.IsNullOrWhiteSpace(Value) || Value.Length == 0;
-        }
-    }
     public class HttpUtility
     {
         Tuple<RestClient, RestRequest> Call(string url, Dictionary<string, string> data, RestSharp.Method method,
@@ -95,20 +77,6 @@ namespace IOSdk.Base
             };
             return returnresponse;
         }
-        public class RestResponse
-        {
-            public HttpStatusCode Status { get; set; }
-            public string Response { get; set; }
-
-            public bool IsResponseOK()
-            {
-                return Status == HttpStatusCode.OK;
-            }
-
-            public bool IsResponseCreated()
-            {
-                return Status == HttpStatusCode.Created;
-            }
-        }
+        
     }
 }

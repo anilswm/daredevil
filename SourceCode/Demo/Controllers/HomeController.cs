@@ -25,7 +25,7 @@ namespace Demo.Controllers
         public IActionResult Index()
         {
             var registerPayload = new UserRegisterationModel();
-            registerPayload.Email = "a5@mailazy.com";
+            registerPayload.Email = "a6@mailazy.com";
             registerPayload.Password = "123456";
             var result = new API().Register(registerPayload);
             ViewBag.result = result;
