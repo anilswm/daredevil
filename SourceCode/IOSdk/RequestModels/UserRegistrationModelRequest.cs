@@ -13,5 +13,7 @@ namespace IOSdk.RequestModels
         public string LastName { get; set; }
         public string Suffix { get; set; }
         public string Gender { get; set; }
+        public string About { get; set; }
+        public string ConfirmPIN { get; set; }
     }
 }
