@@ -5,6 +5,9 @@ using Newtonsoft.Json;
 
 namespace IOSdk.ResponseModels
 {
+	///<summary>
+	/// Model Class of GetProfileResponse
+	///</summary>
     class GetProfileResponse
     {
         [JsonProperty("Identities")]

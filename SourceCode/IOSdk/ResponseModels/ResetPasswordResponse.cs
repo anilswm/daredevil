@@ -5,6 +5,9 @@ using Newtonsoft.Json;
 
 namespace IOSdk.ResponseModels
 {
+	///<summary>
+	///Model Class ResetPasswordResponse
+	///</summary>
     public class ResetPasswordResponse
     {
         [JsonProperty("IsPosted")]

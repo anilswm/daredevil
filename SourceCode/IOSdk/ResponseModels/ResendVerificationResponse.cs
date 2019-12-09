@@ -5,6 +5,9 @@ using Newtonsoft.Json;
 
 namespace IOSdk.ResponseModels
 {
+	///<summary>
+	///Model class ResendVerificationResponse
+	///</summary>
     class ResendVerificationResponse
     {
         [JsonProperty("IsPosted")]

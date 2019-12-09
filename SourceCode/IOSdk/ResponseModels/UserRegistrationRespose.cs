@@ -7,6 +7,9 @@ using RestSharp;
 
 namespace IOSdk.ResponseModels
 {
+	///<summary>
+	///Model class UserRegistrationRespose
+	///</summary>
     public class UserRegistrationRespose
     {
         [JsonProperty("ID")]
