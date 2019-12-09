@@ -4,7 +4,7 @@ using System.Text;
 
 namespace IOSdk.ResponseModels
 {
-    class UserRegistrationRespose
+    public class UserRegistrationRespose
     {
     }
 }
