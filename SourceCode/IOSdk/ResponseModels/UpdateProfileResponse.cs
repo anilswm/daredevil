@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace IOSdk.ResponseModels
 {
@@ -134,7 +135,7 @@ namespace IOSdk.ResponseModels
         public string Country { get; set; }
     }
 
-    public partial class Email
+    public class Email
     {
         [JsonProperty("Type")]
         public string Type { get; set; }
