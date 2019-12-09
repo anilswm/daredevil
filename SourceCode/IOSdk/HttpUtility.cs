@@ -89,8 +89,9 @@ namespace IOSdk
 
             //    return APIStatusCode.ERROR_FROM_CLOUD_API_SIDE;
             //}
-        
-    }
+            return default(T);
+
+        }
         RestResponse Invoke(string url, Dictionary<string, string> data, RestSharp.Method method,
             Dictionary<string, string> headers, string body)
         {

@@ -4,7 +4,7 @@ namespace IOSdk
 {
     public class API
     {
-        public UserRegisterationModel RegisterUser(UserRegisterationModel payload)
+        public UserRegisterationModel Register(UserRegisterationModel payload)
         {
             var result=new HttpUtility().call<UserRegisterationModel>(payload);
             return result;
