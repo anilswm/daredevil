@@ -61,8 +61,7 @@ namespace IOSdk
         public T call<T>(string url,object payload)
         {
             var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(payload);
-            var headers=new Dictionary<string,string>();
-            headers.Add("");
+            
             try
             {
                 var result = Invoke(url, null, RestSharp.Method.POST, null,

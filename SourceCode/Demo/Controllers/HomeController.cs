@@ -17,6 +17,8 @@ namespace Demo.Controllers
 
         public HomeController(ILogger<HomeController> logger)
         {
+            Config.ApiKey = "06929411-f9d7-4b70-9b28-02f68875cb79";
+            Config.ApiSecret = "";
             _logger = logger;
         }
 

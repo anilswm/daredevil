@@ -11,7 +11,7 @@ namespace IOSdk
     {
         public UserRegisterationModel Register(UserRegisterationModel payload)
         {
-            var requestUrl = "";
+            var requestUrl = $"https://api.loginradius.io/v1/register?apiKey={Config.ApiKey}";
             var result=new HttpUtility().call<UserRegisterationModel>(requestUrl, payload);
             return result;
         }
