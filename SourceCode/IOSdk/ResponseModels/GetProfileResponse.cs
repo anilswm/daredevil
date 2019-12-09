@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using Newtonsoft.Json;
-using RestSharp;
+using System.Text;
 
 namespace IOSdk.ResponseModels
 {
-    class UserRegistrationRespose
+    class GetProfileResponse
     {
+        [JsonProperty("Identities")]
+        public object Identities { get; set; }
+
         [JsonProperty("ID")]
         public string Id { get; set; }
 
@@ -136,15 +136,6 @@ namespace IOSdk.ResponseModels
         public object Country { get; set; }
 
         [JsonProperty("LastLoginDate")]
-        public object LastLoginDate { get; set; }
-    }
-
-    public partial class Email
-    {
-        [JsonProperty("Type")]
-        public string Type { get; set; }
-
-        [JsonProperty("Value")]
-        public string Value { get; set; }
+        public DateTimeOffset LastLoginDate { get; set; }
     }
 }
