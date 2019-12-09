@@ -4,9 +4,9 @@ using System.Text;
 
 namespace IOSdk.ResponseModels
 {
-    public class CheckEmail
+    public class ChangePasswordResponse
     {
-        [JsonProperty("IsExist")]
-        public bool IsExist { get; set; }
+        [JsonProperty("IsPosted")]
+        public bool IsPosted { get; set; }
     }
 }
