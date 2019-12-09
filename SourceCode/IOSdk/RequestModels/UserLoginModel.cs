@@ -4,7 +4,9 @@ using System.Text;
 
 namespace IOSdk.RequestModels
 {
-    class UserLoginModel
+    public class UserLoginModel
     {
+        public string  Email{ get; set; }
+        public string Password { get; set; }
     }
 }
