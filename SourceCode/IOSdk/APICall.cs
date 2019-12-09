@@ -1,4 +1,5 @@
-﻿using IOSdk.RequestModels;
+﻿using IOSdk.Base;
+using IOSdk.RequestModels;
 using IOSdk.ResponseModels;
 using RestSharp;
 

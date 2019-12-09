@@ -5,7 +5,7 @@ using System.Net;
 using Newtonsoft.Json;
 using RestSharp;
 
-namespace IOSdk
+namespace IOSdk.Base
 {
     public static class Utility
     {
