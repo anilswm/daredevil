@@ -25,8 +25,6 @@ namespace IOSdk
     }
     public class HttpUtility
     {
-        
-        
         Tuple<RestClient, RestRequest> Call(string url, Dictionary<string, string> data, RestSharp.Method method,
             Dictionary<string, string> headers, string body)
         {
@@ -60,35 +58,33 @@ namespace IOSdk
             return new Tuple<RestClient, RestRequest>(restClient, request);
         }
 
-        public T call<T>(object payload)
+        public T call<T>(string url,object payload)
         {
-            var passwordHookEndpoint = "";
-
-
-
-           var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(payload);
-            //try
-            //{
-                var result = Invoke(passwordHookEndpoint, null, RestSharp.Method.POST, null,
+            var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(payload);
+            var headers=new Dictionary<string,string>();
+            headers.Add("");
+            try
+            {
+                var result = Invoke(url, null, RestSharp.Method.POST, null,
                     jsonString);
 
                 if (result.IsResponseOK())
                 {
                     var apiResponse = JsonConvert.DeserializeObject<T>(result.Response);
                 }
-                
-            //}
-            //catch (OAuthException ex)
-            //{
-            //    try
-            //    {
-            //        cloudApiErrorResponse =
-            //            Newtonsoft.Json.JsonConvert.DeserializeObject<CloudAPIErrorResponse>(ex.Message);
-            //    }
-            //    catch { }
 
-            //    return APIStatusCode.ERROR_FROM_CLOUD_API_SIDE;
-            //}
+            }
+            catch (Exception ex)
+            {
+                //try
+                //{
+                //    cloudApiErrorResponse =
+                //        Newtonsoft.Json.JsonConvert.DeserializeObject<CloudAPIErrorResponse>(ex.Message);
+                //}
+                //catch { }
+
+                //return APIStatusCode.ERROR_FROM_CLOUD_API_SIDE;
+            }
             return default(T);
 
         }
