@@ -25,8 +25,6 @@ namespace IOSdk
     }
     public class HttpUtility
     {
-        
-        
         Tuple<RestClient, RestRequest> Call(string url, Dictionary<string, string> data, RestSharp.Method method,
             Dictionary<string, string> headers, string body)
         {
@@ -55,40 +53,31 @@ namespace IOSdk
             if (body.IsNotNullOrEmptyOrWhiteSpace())
             {
                 request.RequestFormat = DataFormat.Json;
-                request.AddParameter("application/json; charset=utf-8", body, ParameterType.RequestBody);
+                request.AddParameter("application/json", body, ParameterType.RequestBody);
             }
             return new Tuple<RestClient, RestRequest>(restClient, request);
         }
 
-        public T call<T>(object payload)
+        public T call<T>(string url,object payload,RestSharp.Method method)
         {
-            var passwordHookEndpoint = "";
-
-
-
-           var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(payload);
-            //try
-            //{
-                var result = Invoke(passwordHookEndpoint, null, RestSharp.Method.POST, null,
+            var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(payload);
+            
+            try
+            {
+                var result = Invoke(url, null, method, null,
                     jsonString);
 
                 if (result.IsResponseOK())
                 {
                     var apiResponse = JsonConvert.DeserializeObject<T>(result.Response);
+                    return apiResponse;
                 }
-                
-            //}
-            //catch (OAuthException ex)
-            //{
-            //    try
-            //    {
-            //        cloudApiErrorResponse =
-            //            Newtonsoft.Json.JsonConvert.DeserializeObject<CloudAPIErrorResponse>(ex.Message);
-            //    }
-            //    catch { }
 
-            //    return APIStatusCode.ERROR_FROM_CLOUD_API_SIDE;
-            //}
+            }
+            catch (Exception ex)
+            {
+                
+            }
             return default(T);
 
         }

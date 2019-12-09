@@ -139,12 +139,5 @@ namespace IOSdk.ResponseModels
         public object LastLoginDate { get; set; }
     }
 
-    public partial class Email
-    {
-        [JsonProperty("Type")]
-        public string Type { get; set; }
-
-        [JsonProperty("Value")]
-        public string Value { get; set; }
-    }
+   
 }

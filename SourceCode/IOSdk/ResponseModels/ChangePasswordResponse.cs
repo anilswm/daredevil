@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace IOSdk.ResponseModels
 {
-    public class VerifyEmail
+    public class ChangePasswordResponse
     {
         [JsonProperty("IsPosted")]
         public bool IsPosted { get; set; }
