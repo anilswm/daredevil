@@ -1,4 +1,6 @@
 ﻿using IOSdk.RequestModels;
+using IOSdk.ResponseModels;
+using RestSharp;
 
 namespace IOSdk
 {
@@ -9,10 +11,10 @@ namespace IOSdk
     }
     public class API
     {
-        public UserRegisterationModel Register(UserRegisterationModel payload)
+        public UserRegistrationRespose Register(UserRegisterationModel payload)
         {
             var requestUrl = $"https://api.loginradius.io/v1/register?apiKey={Config.ApiKey}";
-            var result=new HttpUtility().call<UserRegisterationModel>(requestUrl, payload);
+            var result=new HttpUtility().call<UserRegistrationRespose>(requestUrl, payload,Method.POST);
             return result;
         }
     }

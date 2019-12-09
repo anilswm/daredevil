@@ -53,36 +53,30 @@ namespace IOSdk
             if (body.IsNotNullOrEmptyOrWhiteSpace())
             {
                 request.RequestFormat = DataFormat.Json;
-                request.AddParameter("application/json; charset=utf-8", body, ParameterType.RequestBody);
+                request.AddParameter("application/json", body, ParameterType.RequestBody);
             }
             return new Tuple<RestClient, RestRequest>(restClient, request);
         }
 
-        public T call<T>(string url,object payload)
+        public T call<T>(string url,object payload,RestSharp.Method method)
         {
             var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(payload);
             
             try
             {
-                var result = Invoke(url, null, RestSharp.Method.POST, null,
+                var result = Invoke(url, null, method, null,
                     jsonString);
 
                 if (result.IsResponseOK())
                 {
                     var apiResponse = JsonConvert.DeserializeObject<T>(result.Response);
+                    return apiResponse;
                 }
 
             }
             catch (Exception ex)
             {
-                //try
-                //{
-                //    cloudApiErrorResponse =
-                //        Newtonsoft.Json.JsonConvert.DeserializeObject<CloudAPIErrorResponse>(ex.Message);
-                //}
-                //catch { }
-
-                //return APIStatusCode.ERROR_FROM_CLOUD_API_SIDE;
+                
             }
             return default(T);
 
