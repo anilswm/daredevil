@@ -7,7 +7,7 @@ namespace IOSdk.ResponseModels
 {
     public class CheckEmail
     {
-        [JsonProperty("IsPosted")]
+        [JsonProperty("IsExist")]
         public bool IsExist { get; set; }
     }
 }
